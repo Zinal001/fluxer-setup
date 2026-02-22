@@ -45,7 +45,10 @@ Run the following commands:
 
 ### Modify configuration (Using Nano)
 
-nano config/config.json  
+See [example.config.json](https://github.com/Zinal001/fluxer-setup/blob/main/example.config.json) for an example file.
+
+`nano config/config.json`
+
 **Important changes:**  
 	* Change “**domain**”.”**base\_domain**” from localhost to your domain (i.e. [fluxer.example.com](http://fluxer.example.com)).  
 	* Add “**domain**”.”**public\_scheme**”: “https” if you want the app to be secure (Requires an SSL certificate).  
@@ -63,29 +66,30 @@ Save configuration using **CTRL \+ O**, **Enter** and then exit Nano using **CTR
 
 ### Modify RuntimeConfigStore.tsx
 
-`nano fluxer\_app/src/stores/RuntimeConfigStore.tsx`
+`nano fluxer_app/src/stores/RuntimeConfigStore.tsx`
 
-Change line 231 from:  
-`const bootstrapEndpoint \= this.apiEndpoint || Config.PUBLIC\_BOOTSTRAP\_API\_ENDPOINT;`
+Change line 231 from:
+
+`const bootstrapEndpoint = this.apiEndpoint || Config.PUBLIC_BOOTSTRAP_API_ENDPOINT;`
 
 to  
 
-`const bootstrapEndpoint \= "[https://DOMAIN](https://DOMAIN):48763"; `
+`const bootstrapEndpoint = "https://DOMAIN:48763"; `
 (i.e. [https://fluxer.example.com](https://fluxer.example.com))
 
 Save configuration using **CTRL \+ O**, **Enter** and then exit Nano using **CTRL \+ X**.
 
 ### Modify VoiceConnectionManager.tsx
 
-`nano fluxer\_app/src/stores/voice/VoiceConnectionManager.tsx`
+`nano fluxer_app/src/stores/voice/VoiceConnectionManager.tsx`
 
 Change line 179 from:  
 
-`const endpoint \= raw.endpoint ?? null;`
+`const endpoint = raw.endpoint ?? null;`
 
 to  
 
-`const endpoint \= "wss://DOMAIN:7880";`
+`const endpoint = "wss://DOMAIN:7880";`
 (i.e. [https://fluxer.example.com](https://fluxer.example.com))
 
 Save configuration using **CTRL \+ O**, **Enter** and then exit Nano using **CTRL \+ X**.
